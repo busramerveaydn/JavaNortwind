@@ -12,6 +12,7 @@ import kodlamaio.northwind.business.abstracts.ProductService;
 import kodlamaio.northwind.core.utilities.results.DataResult;
 import kodlamaio.northwind.core.utilities.results.Result;
 import kodlamaio.northwind.entities.concretes.Product;
+import kodlamaio.northwind.entities.dtos.productWithCategoryDto;
 
 import java.util.List;
 
@@ -32,6 +33,11 @@ public class ProductsController {
 	@GetMapping("/getall") //contoller ın sonuna bunu getirirse metoda erişir.
 	public DataResult<List<Product>> getAll(){
 		return productService.getAll();		
+	}
+	
+	@GetMapping("/getProductWithCategoryDetails")
+	public DataResult<List<productWithCategoryDto>> getProductWithCategoryDetails(){
+		return this.productService.getProductWithCategoryDetails();
 	}
 	
 //	ekeleme operasyonu için
@@ -66,4 +72,5 @@ public class ProductsController {
 	public  DataResult<List<Product>> getAllSorted(){
 		return this.productService.getAllSorted();
 	}
+	
 }
